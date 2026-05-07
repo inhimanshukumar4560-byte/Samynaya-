@@ -1,369 +1,456 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ghanshyam Tech | Master Stock & Forex Trading</title>
-    
-    <!-- Scripts & Frameworks -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samanvay Consultancy | Financial & Tax Experts Vadodara</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
+        /* --- Colors & General Setup --- */
         :root {
-            --gold: #D4AF37;
-            --dark-black: #050505;
-            --glass: rgba(255, 255, 255, 0.03);
+            --dark-blue: #2A3660; 
+            --orange: #E67E22;    
+            --light-gray: #f8f9fa;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--dark-black);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 18px;
+            background-color: #ffffff;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px; /* Reduced vertical padding for better logo fit */
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo Image Style - No compression, high quality */
+        .logo-img {
+            height: 75px; /* Adjusting height to fit header nicely */
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        .btn-call {
+            background-color: var(--orange);
             color: white;
-            overflow-x: hidden;
-            width: 100%;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        .btn-call:hover {
+            background-color: var(--dark-blue);
         }
 
-        /* Prevent horizontal scroll on mobile */
-        html, body {
+        /* --- Hero Section --- */
+        .hero {
+            margin-top: 80px;
+            height: 95vh;
+            background: linear-gradient(rgba(42, 54, 96, 0.85), rgba(42, 54, 96, 0.85)), url('https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=1920&auto=format&fit=crop') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 60px; margin-bottom: 25px; line-height: 1.2; }
+        .hero h1 span { color: var(--orange); }
+        .hero p { font-size: 22px; margin-bottom: 40px; max-width: 900px; }
+
+        section {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* --- About Section --- */
+        .about {
+            display: flex;
+            padding: 100px 50px;
+            background-color: white;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text { flex: 1; }
+        .about-text h2 { color: var(--dark-blue); font-size: 40px; margin-bottom: 25px; border-bottom: 4px solid var(--orange); display: inline-block; }
+        .about-text p { margin-bottom: 20px; font-size: 19px; text-align: justify; }
+        .about-img { flex: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .about-img img { width: 100%; height: auto; display: block; }
+
+        /* --- Services Section --- */
+        .services {
+            padding: 100px 50px;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1920&auto=format&fit=crop') center/cover;
+            text-align: center;
+        }
+
+        .services h2 { color: var(--dark-blue); font-size: 40px; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: 0.4s;
+            border-top: 6px solid var(--orange);
+        }
+
+        .service-card:hover { transform: translateY(-12px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+        .service-card i { font-size: 50px; color: var(--dark-blue); margin-bottom: 25px; }
+        .service-card h3 { margin-bottom: 15px; font-size: 26px; color: var(--dark-blue); }
+        .service-card p { font-size: 17px; color: #555; }
+
+        /* --- Why Choose Us --- */
+        .why-choose {
+            display: flex;
+            padding: 100px 50px;
+            background-color: var(--light-gray);
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .why-img { flex: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .why-img img { width: 100%; height: auto; display: block; }
+        .why-text { flex: 1; }
+        .why-text h2 { color: var(--dark-blue); font-size: 40px; margin-bottom: 30px; }
+        .why-list { list-style: none; }
+        .why-list li { font-size: 20px; margin-bottom: 20px; display: flex; align-items: flex-start; }
+        .why-list i { color: var(--orange); margin-right: 15px; font-size: 24px; margin-top: 5px; }
+
+        /* --- Contact Section --- */
+        .contact {
+            padding: 100px 50px;
+            display: flex;
+            gap: 50px;
+            background: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=1920&auto=format&fit=crop') center/cover fixed;
             position: relative;
-            max-width: 100%;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(42, 54, 96, 0.90);
         }
 
-        .gold-gradient {
-            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 45%, #B38728 70%, #FBF5B7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .glass-panel {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .btn-premium {
-            background: linear-gradient(135deg, #D4AF37 0%, #B38728 100%);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-premium:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            transition: transform 0.4s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        /* Smooth Chart Container */
-        .chart-container {
+        .contact-content {
             position: relative;
-            height: 500px;
+            z-index: 1;
+            display: flex;
             width: 100%;
+            gap: 60px;
+            color: white;
         }
+
+        .contact-info { flex: 1; }
+        .contact-info h2 { font-size: 42px; margin-bottom: 20px; color: var(--orange); }
+        .contact-info > p { font-size: 20px; margin-bottom: 40px; }
+        
+        .info-box { margin-bottom: 30px; display: flex; align-items: flex-start; gap: 20px;}
+        .info-box i { font-size: 28px; color: var(--orange); margin-top: 5px; }
+        .info-box div { font-size: 19px; }
+        .info-box strong { font-size: 22px; color: #fff; display: block; margin-bottom: 5px; }
+
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .contact-form h3 { color:var(--dark-blue); margin-bottom: 25px; font-size: 30px; text-align: center; }
+        
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--orange);
+            outline: none;
+        }
+        
+        .contact-form button {
+            width: 100%;
+            padding: 16px;
+            background: var(--dark-blue);
+            color: white;
+            border: none;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .contact-form button:hover { background: var(--orange); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4); }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #151a2b;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 18px;
+            border-top: 4px solid var(--orange);
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 38px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15); }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 991px) {
+            .contact-content { flex-direction: column; }
+        }
+
         @media (max-width: 768px) {
-            .chart-container { height: 350px; }
-        }
-
-        .floating {
-            animation: float 4s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            header { flex-direction: column; padding: 15px; text-align: center; }
+            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .btn-call { margin-top: 15px; }
+            .logo-img { height: 60px; } /* Small screens logo size */
+            
+            .hero { padding-top: 120px; }
+            .hero h1 { font-size: 42px; }
+            .hero p { font-size: 18px; }
+            
+            .about, .why-choose, .contact { flex-direction: column; padding: 60px 20px; }
+            .about-text h2, .why-text h2, .services h2, .contact-info h2 { font-size: 32px; }
+            
+            .contact-form { padding: 25px; }
+            
+            .whatsapp-float { width: 55px; height: 55px; font-size: 32px; bottom: 20px; right: 20px;}
         }
     </style>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
-    n.version='2.0';n.queue=[];t=b.createElement(e);
-    t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1484255980009203');
-    fbq('track', 'PageView');
-    </script>
-    <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1484255980009203&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Meta Pixel Code -->
-
 </head>
 <body>
 
-    <!-- Top Market Ticker (Stable Wrapper) -->
-    <div class="w-full bg-black border-b border-white/10 overflow-hidden">
-        <div class="tradingview-widget-container">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-            "symbols": [
-                {"proName": "NSE:NIFTY", "title": "NIFTY 50"},
-                {"proName": "NSE:BANKNIFTY", "title": "BANK NIFTY"},
-                {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"},
-                {"proName": "BITSTAMP:BTCUSD", "title": "BTC/USD"},
-                {"proName": "OANDA:XAUUSD", "title": "GOLD"}
-            ],
-            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive"
-            }
-            </script>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-[100] bg-black/80 backdrop-blur-lg border-b border-white/5 px-4 md:px-10 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo with Image -->
-            <div class="flex items-center gap-3">
-                <img src="https://i.ibb.co/r2k3sSj8/IMG-20260506-WA0061.jpg" alt="Ghanshyam Tech Logo" class="w-10 h-10 md:w-12 md:h-12 rounded-lg object-cover border border-[#D4AF37]/30">
-                <span class="text-xl md:text-2xl font-bold uppercase tracking-tighter">Ghanshyam <span class="gold-gradient">Tech</span></span>
-            </div>
-
-            <!-- Desktop Links -->
-            <div class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-gray-400">
-                <a href="#analysis" class="hover:text-white transition">Analysis</a>
-                <a href="#services" class="hover:text-white transition">Strategies</a>
-                <a href="#pricing" class="hover:text-white transition">Education</a>
-                <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="btn-premium text-black px-6 py-2.5 rounded-full">Join Telegram</a>
-            </div>
-
-            <!-- Mobile Toggle -->
-            <button class="lg:hidden text-2xl text-white" id="menu-btn">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Side Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-black p-10 lg:hidden">
-        <div class="flex justify-end">
-            <button class="text-3xl" id="close-btn">&times;</button>
-        </div>
-        <div class="flex flex-col space-y-8 mt-10 text-xl font-bold uppercase">
-            <a href="#analysis" class="mobile-link">Market Analysis</a>
-            <a href="#services" class="mobile-link">Strategies</a>
-            <a href="#pricing" class="mobile-link">Masterclass</a>
-            <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="text-[#D4AF37]">Telegram Channel</a>
-        </div>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="logo">
+            <!-- Provided Logo Image Inserted Here -->
+            <img src="https://i.ibb.co/r2k3sSj8/IMG-20260506-WA0061.jpg" alt="Samanvay Consultancy Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="tel:+919824089226" class="btn-call"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-16 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6" data-aos="fade-down">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></span>
-                <span class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Next Gen Trading Intelligence</span>
-            </div>
-            
-            <h1 class="text-4xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] mb-8" data-aos="fade-up">
-                Master the Markets with <br> <span class="gold-gradient">Institutional Precision</span>
-            </h1>
-            
-            <p class="text-gray-400 text-base md:text-xl max-w-3xl mx-auto mb-10 font-light" data-aos="fade-up" data-aos-delay="100">
-                Stop guessing. Start calculating. Learn the exact Price Action and Option Buying strategies used by Ghanshyam Tech to dominate Nifty and Forex markets.
-            </p>
+    <section id="home" class="hero">
+        <h1>Expert Financial Solutions by <br><span>Samanvay Consultancy</span></h1>
+        <p>Simplifying Compliance, Maximizing Growth. Your trusted partner in Vadodara for all Accounting, Taxation, and Business Registration needs.</p>
+        <a href="#contact" class="btn-call" style="font-size: 20px; padding: 18px 35px;"><i class="fas fa-arrow-right"></i> Get a Free Consultation</a>
+    </section>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="w-full sm:w-auto btn-premium px-10 py-5 rounded-2xl text-black font-bold text-lg flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-telegram text-2xl"></i> JOIN FREE TELEGRAM
-                </a>
-                <a href="#pricing" class="w-full sm:w-auto glass-panel px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition">
-                    VIEW COURSES
-                </a>
-            </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <h2>Welcome to Samanvay Consultancy</h2>
+            <p>Under the expert leadership of <strong>Mr. Ulpesh Pandya</strong>, Samanvay Consultancy has established itself as a premier consulting firm in Vadodara. We believe in providing personalized, accurate, and timely services to our clients.</p>
+            <p>Whether you are an individual taxpayer or a growing corporate business, we bring deep industry knowledge and unwavering dedication to ensure your financial health is always in top condition.</p>
+        </div>
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1000&auto=format&fit=crop" alt="Consulting Meeting">
+        </div>
+    </section>
 
-            <!-- Hero Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 border-y border-white/5 py-10" data-aos="zoom-in">
-                <div>
-                    <div class="text-2xl md:text-4xl font-bold gold-gradient">150K+</div>
-                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-1">Students Trained</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-4xl font-bold gold-gradient">8.5/10</div>
-                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-1">Win Probability</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-4xl font-bold gold-gradient">24/7</div>
-                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-1">Market Support</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-4xl font-bold gold-gradient">FREE</div>
-                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-1">Daily Analysis</div>
-                </div>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Professional Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>GST Services</h3>
+                <p>Complete GST Registration, timely Return Filing, and Audit Compliances tailored for your business.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Income Tax Returns</h3>
+                <p>Accurate ITR filing, Tax planning, and TDS/TCS management to save your hard-earned money legally.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-book"></i>
+                <h3>Accounting & Audit</h3>
+                <p>Professional Bookkeeping, Financial Statement Preparation, and Internal Audits for transparency.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-building"></i>
+                <h3>Business Registration</h3>
+                <p>Hassle-free Company, LLP, Partnership Firm, and MSME registrations to start your business right.</p>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Chart Section -->
-    <section id="analysis" class="py-20 px-6 bg-white/[0.01]">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                <div class="max-w-xl">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Live Market <span class="gold-gradient">Execution</span></h2>
-                    <p class="text-gray-400">Watch how we analyze liquidity zones in real-time across Bank Nifty and Major Forex pairs.</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-xs font-bold uppercase text-gray-500">Live Feed: NSE/Forex</span>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-[2rem] p-2 md:p-4 shadow-2xl" data-aos="fade-up">
-                <div class="chart-container overflow-hidden rounded-2xl">
-                    <!-- TradingView Widget -->
-                    <div id="tradingview_main" style="height:100%;width:100%"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                    <script type="text/javascript">
-                    new TradingView.widget({
-                        "autosize": true,
-                        "symbol": "NSE:BANKNIFTY",
-                        "interval": "15",
-                        "timezone": "Asia/Kolkata",
-                        "theme": "dark",
-                        "style": "1",
-                        "locale": "en",
-                        "enable_publishing": false,
-                        "allow_symbol_change": true,
-                        "container_id": "tradingview_main"
-                    });
-                    </script>
-                </div>
-            </div>
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="why-img">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="Team Working">
+        </div>
+        <div class="why-text">
+            <h2>Why Choose Us?</h2>
+            <ul class="why-list">
+                <li><i class="fas fa-check-circle"></i> <div><strong>Expert Guidance:</strong> Led by Mr. Ulpesh Pandya's extensive experience.</div></li>
+                <li><i class="fas fa-check-circle"></i> <div><strong>Client-Centric:</strong> We treat your business as our own.</div></li>
+                <li><i class="fas fa-check-circle"></i> <div><strong>Timely Execution:</strong> Never miss a compliance deadline again.</div></li>
+                <li><i class="fas fa-check-circle"></i> <div><strong>Data Privacy:</strong> Your financial data is 100% secure and confidential with us.</div></li>
+            </ul>
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] hover:border-[#D4AF37]/40" data-aos="fade-up">
-                <i class="fa-solid fa-bolt-lightning text-4xl text-yellow-500 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">Option Buying</h3>
-                <p class="text-gray-400 leading-relaxed">Learn the "Ghanshyam Setup" for fast momentum trading in Bank Nifty Options. Minimum capital, maximum returns.</p>
-            </div>
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border-[#D4AF37]/30" data-aos="fade-up" data-aos-delay="100">
-                <i class="fa-solid fa-chart-line text-4xl text-blue-500 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">SMC Forex Logic</h3>
-                <p class="text-gray-400 leading-relaxed">Trade EURUSD and Gold using Smart Money Concepts. Identify where the banks are trapping retail traders.</p>
-            </div>
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] hover:border-[#D4AF37]/40" data-aos="fade-up" data-aos-delay="200">
-                <i class="fa-solid fa-shield-halved text-4xl text-green-500 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">Risk Management</h3>
-                <p class="text-gray-400 leading-relaxed">The holy grail of trading. We teach you how to never blow an account and stay in the game forever.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-24 px-6 bg-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6">Elevate Your <span class="gold-gradient">Trading</span></h2>
-                <p class="text-gray-500">Choose the path that fits your ambition.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Basic -->
-                <div class="glass-panel p-10 rounded-[3rem] relative group" data-aos="fade-right">
-                    <h3 class="text-2xl font-bold mb-2">Self-Paced Mastery</h3>
-                    <div class="text-4xl font-black mb-6">₹9,999 <span class="text-sm text-gray-500">One-time</span></div>
-                    <ul class="space-y-4 mb-10 text-gray-400">
-                        <li><i class="fa-solid fa-check text-gold mr-3"></i> 30+ Video Lessons</li>
-                        <li><i class="fa-solid fa-check text-gold mr-3"></i> Price Action Basics</li>
-                        <li><i class="fa-solid fa-check text-gold mr-3"></i> PDF Cheat Sheets</li>
-                        <li><i class="fa-solid fa-xmark text-red-500 mr-3"></i> Live Mentorship</li>
-                    </ul>
-                    <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="block text-center w-full py-4 border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-black transition">Inquire on Telegram</a>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>Ready to discuss your financial goals? Contact us today.</p>
+                
+                <div class="info-box">
+                    <i class="fas fa-user-tie"></i>
+                    <div>
+                        <strong>Contact Person</strong>
+                        Mr. Ulpesh Pandya
+                    </div>
                 </div>
 
-                <!-- VIP -->
-                <div class="glass-panel p-10 rounded-[3rem] border-2 border-[#D4AF37] shadow-[0_0_40px_rgba(212,175,55,0.15)] relative scale-100 lg:scale-105" data-aos="fade-left">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Most Popular</div>
-                    <h3 class="text-2xl font-bold mb-2 gold-gradient">Pro VIP Mentorship</h3>
-                    <div class="text-4xl font-black mb-6">₹24,999 <span class="text-sm text-gray-500">6 Months</span></div>
-                    <ul class="space-y-4 mb-10 text-gray-200">
-                        <li><i class="fa-solid fa-crown text-[#D4AF37] mr-3"></i> Live Market Trading Calls</li>
-                        <li><i class="fa-solid fa-crown text-[#D4AF37] mr-3"></i> Advanced Option Buying</li>
-                        <li><i class="fa-solid fa-crown text-[#D4AF37] mr-3"></i> Psychology Masterclass</li>
-                        <li><i class="fa-solid fa-crown text-[#D4AF37] mr-3"></i> Direct WhatsApp Support</li>
-                    </ul>
-                    <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="block text-center w-full py-4 btn-premium rounded-2xl font-bold text-black uppercase tracking-widest">Enroll in VIP</a>
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Office Address</strong>
+                        B-31, Shreeji Market, Opp. Vrundavan Township,<br>
+                        Nr. Nageshwar Temple, Harni Road, Vadodara.
+                    </div>
                 </div>
+
+                <div class="info-box">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Phone & WhatsApp</strong>
+                        +91 98240 89226 <br>
+                        +91 99248 89226
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email Address</strong>
+                        samanvayconsul@yahoo.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form action="mailto:samanvayconsul@yahoo.com" method="post" enctype="text/plain">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" placeholder="Your Mobile Number" required>
+                    <input type="email" placeholder="Your Email Id">
+                    <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                    <button type="submit">Submit Request</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <!-- Footer Logo with Image -->
-            <div class="flex items-center gap-3 mb-8">
-                <img src="https://i.ibb.co/r2k3sSj8/IMG-20260506-WA0061.jpg" alt="Ghanshyam Tech Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-xl object-cover border border-[#D4AF37]/30">
-                <span class="text-3xl font-bold uppercase">Ghanshyam <span class="gold-gradient">Tech</span></span>
-            </div>
-            
-            <div class="flex gap-6 mb-12">
-                <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-[#D4AF37] transition"><i class="fa-brands fa-telegram"></i></a>
-                <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-[#D4AF37] transition"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-[#D4AF37] transition"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-
-            <p class="text-gray-600 text-xs max-w-2xl leading-relaxed mb-8 uppercase tracking-widest">
-                Disclaimer: Trading in the Stock Market or Forex involves significant risk. Past performance of Ghanshyam Tech strategies does not guarantee future results.
-            </p>
-
-            <div class="text-gray-500 text-[10px] uppercase tracking-[0.3em]">
-                &copy; 2024 Ghanshyam Tech Education | Built for Professionals
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2024 Samanvay Consultancy. All Rights Reserved. | Vadodara, Gujarat.</p>
     </footer>
 
-    <!-- Fixed Telegram Button -->
-    <a href="https://t.me/+0xqbn2OVyRY1MDQ1" class="fixed bottom-6 right-6 z-[200] w-16 h-16 bg-[#0088cc] text-white rounded-2xl flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform floating">
-        <i class="fa-brands fa-telegram"></i>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919824089226?text=Hello%20Samanvay%20Consultancy,%20I%20want%20to%20know%20more%20about%20your%20services." class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            disable: 'mobile'
-        });
-
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const links = document.querySelectorAll('.mobile-link');
-
-        menuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
-        closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        links.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
-
-        // Smooth Scroll handling for mobile
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
