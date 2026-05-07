@@ -1,0 +1,2 @@
+# Samynaya-
+Nxjd
